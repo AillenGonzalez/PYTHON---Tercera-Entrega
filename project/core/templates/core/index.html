@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block contenido_titulo %}
+
+   
+
+{% endblock contenido_titulo %}
+
+{% block contenido %}
+
+    {% for cliente in clientes  %}
+     {{cliente}}
+    {% endfor %}
+ 
+ 
+{% endblock contenido %}

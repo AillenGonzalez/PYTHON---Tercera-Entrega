@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Small Business - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'core/assets/favicon.ico' %}" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-gpGfzbzzVCEhY5KgPZNDEzfcSU2XOdFNTBb6Ukd5HxCt6l5fZgAfgI5Gz7LH6FA" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="{% static 'core/css/styles.css' %}" rel="stylesheet" />
+
+    
+</head>
+
+<body>
+    {% include 'core/navbar.html' %}
+    <!-- Page Content-->
+    {% block contenido_titulo %}
+    {% endblock contenido_titulo %}
+
+    <div class="container px-4 px-lg-5">
+        <!-- Heading Row-->
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            <div class="col-lg-7">
+                <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'core/img/empleados.jpg' %}" alt="..." />
+            </div>
+            <div class="col-lg-5">
+                <h1 class="font-weight-light">Ratelligence S.A.</h1>
+                <p>Somos una empresa pionera en soluciones innovadoras para la optimización y gestión inteligente de recursos. Bajo el liderazgo visionario de su CEO, una rata excepcionalmente inteligente y estratégica, la empresa se especializa en el desarrollo de tecnologías disruptivas, consultoría de alta gama y servicios de gestión eficiente. Ratelligence S.A. se destaca por su enfoque creativo, su compromiso con la excelencia y su capacidad para resolver desafíos empresariales con una perspectiva única y visionaria.</p>
+            </div>
+        </div>
+        <!-- Call to Action-->
+        <div class="card mb-4 barra-busqueda">
+            <div class="card-header">Busqueda</div>
+            <form action="{% url 'core:buscar' %}" method="GET">
+                <div class="input-group">
+                    <input class="form-control" type="text" name="q" placeholder="Ingrese su búsqueda"
+                           aria-label="Enter search term..." aria-describedby="button-search">
+                    <button class="btn btn-primary" type="submit">Vamos</button>
+                    {% if results %}
+                        <a href="{% url 'core:buscar' %}?borrar" class="btn btn-danger">Borrar resultados</a>
+                    {% endif %}
+                </div>
+            </form>
+            
+            <!-- Mostrar resultados aquí -->
+            {% if results %}
+            <h2>Resultados para "{{ query }}"</h2>
+            <div class="row gx-4 gx-lg-5">
+                {% for result in results %}
+                    {% include 'core/card.html' with titulo=result.nombre imagen=result.imagen descripcion=result.descripcion %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <!-- Content Row-->
+    <div class="row gx-4 gx-lg-5">
+        {% block tarjetas %}
+        {% endblock tarjetas %}
+    </div>
+    {% block contenido %}
+    
+    {% endblock contenido %}
+    <!-- Footer-->
+    {% include 'core/footer.html' %}
+    <!-- Core theme JS-->
+    <script src="{% static 'core/js/scripts.js' %}"></script>
+</body>
+
+</html>

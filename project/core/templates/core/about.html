@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block contenido_titulo %}
+    <style>
+        .barra-busqueda {
+            display: none;
+        }
+    </style>
+{% endblock contenido_titulo %}
+
+{% block tarjetas %}
+{% include 'core/card.html' with titulo="CEO - Señor Rata" imagen='core/img/ratita.png' descripcion='El Señor Rata es un líder visionario y estratégico, cuyo liderazgo ha sido fundamental para impulsar el crecimiento y la innovación en nuestra empresa. Como líder, el Señor Rata ha sido un modelo a seguir para todos los empleados, promoviendo una cultura de trabajo inclusiva, ética y de alto rendimiento.' %}
+    {% include 'core/card.html' with titulo="Juan Cruz Pepito" imagen='core/img/juan.png' descripcion="Juan Cruz Pepito es un activo valioso en nuestro equipo de desarrollo. Su pasión por la programación y su compromiso con la excelencia lo destacan como un miembro destacado en nuestro Departamento de Desarrollo. Juan Cruz no solo es conocido por su capacidad técnica, sino también por su actitud positiva y su habilidad para trabajar bien en equipo. Su disposición para compartir conocimientos y asumir responsabilidades adicionales lo convierte en un compañero confiable y un activo invaluable para nuestro equipo." %}
+    {% include 'core/card.html' with titulo="Martina Lumbria" imagen='core/img/martina.png' descripcion="Martina Lumbria es una pieza fundamental en nuestro equipo de marketing digital. Su enfoque estratégico y su creatividad han sido fundamentales para el éxito de nuestras campañas y estrategias de marketing. Martina es reconocida por su capacidad para motivar a su equipo y fomentar un ambiente de trabajo positivo y productivo. Su habilidad para pensar de manera innovadora y su enfoque en los detalles hacen que sea una líder inspiradora y un modelo a seguir para su equipo." %}
+    {% include 'core/card.html' with titulo="Matias Lenzeti" imagen='core/img/roberto.png' descripcion='Matías Lenzeti es un Analista de Datos excepcional en nuestro equipo, cuyo enfoque analítico y habilidades técnicas han sido fundamentales para el éxito en la interpretación de nuestros datos y la toma de decisiones fundamentadas. Matías es reconocido por su enfoque meticuloso, su pasión por la precisión y su capacidad para trabajar en equipos interdisciplinarios. Su habilidad para transformar datos en ideas accionables lo convierte en un colaborador valioso y confiable.    ' %}
+    {% include 'core/card.html' with titulo="Juana Santos" imagen='core/img/juana.png' descripcion='Juana Santos es una líder destacada en nuestro equipo de Recursos Humanos, cuya dedicación, empatía y habilidades estratégicas han sido fundamentales para el crecimiento y bienestar de nuestra organización. Juana es reconocida por su capacidad para motivar, inspirar y liderar equipos multidisciplinarios. Su compromiso con el bienestar de los empleados y su habilidad para promover un entorno laboral positivo la convierten en una líder ejemplar.' %}
+    {% endblock tarjetas %}
+
+{% block contenido %}
+{% endblock contenido %}
